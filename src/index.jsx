@@ -2,14 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import App from './components/App';
 import reducer from './reducer';
 import { getBattery, setBattery } from './reducer/actions';
 
 const store = createStore(reducer);
+const BATTERY_UPDATE_INTERVAL = 1000 * 10; // 10s
 
 ReactDOM.render(
 	<Provider store={ store }>
-		<div />
+		<App />
 	</Provider>,
 	document.getElementById('app')
 );
@@ -19,19 +21,18 @@ store.dispatch(
 );
 
 navigator.getBattery().then((battery) => {
-	store.dispatch(
-		setBattery(battery)
-	);
-
-	battery.addEventListener('chargingchange', () => {
+	const updateBattery = () => {
 		store.dispatch(
 			setBattery(battery)
 		);
-	});
-
-	battery.addEventListener('levelchange', () => {
-		store.dispatch(
-			setBattery(battery)
-		);
-	});
+	};
+	// Update whenever the browser notifies us of changes
+	battery.addEventListener('chargingchange', updateBattery);
+	battery.addEventListener('levelchange', updateBattery);
+	// Update periodically
+	setInterval(updateBattery, BATTERY_UPDATE_INTERVAL);
+	// Update immediately
+	updateBattery();
+}).catch((err) => {
+	console.error('Error fetching battery stats: ' + err.message);
 });
