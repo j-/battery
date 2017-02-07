@@ -1,11 +1,15 @@
 import React, { PropTypes } from 'react';
 import BatteryLevel from './BatteryLevel';
 
+import {
+	batteryDischarging,
+} from './styles';
+
 const BatteryDischarging = ({
 	level,
 	...props
 }) => (
-	<div className="battery-charging" { ...props }>
+	<div className={ batteryDischarging } { ...props }>
 		<BatteryLevel level={ level } />
 	</div>
 );

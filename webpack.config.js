@@ -12,7 +12,7 @@ module.exports = {
 		filename: 'bundle.js',
 	},
 	resolve: {
-		extensions: ['.js', '.jsx'],
+		extensions: ['.js', '.jsx', '.css', '.less'],
 	},
 	module: {
 		rules: [
@@ -22,6 +22,28 @@ module.exports = {
 					resolve('./src'),
 				],
 				test: /\.jsx?$/,
+			},
+			{
+				use: [
+					'style-loader',
+					'css-loader?modules',
+					'less-loader',
+				],
+				include: [
+					resolve('./src/components'),
+				],
+				test: /\.(css|less)?$/,
+			},
+			{
+				use: [
+					'style-loader',
+					'css-loader',
+					'less-loader',
+				],
+				exclude: [
+					resolve('./src/components'),
+				],
+				test: /\.(css|less)?$/,
 			},
 		],
 	},

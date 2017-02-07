@@ -6,6 +6,8 @@ import App from './components/App';
 import reducer from './reducer';
 import { getBattery, setBattery } from './reducer/actions';
 
+import './main';
+
 const store = createStore(reducer);
 const BATTERY_UPDATE_INTERVAL = 1000 * 10; // 10s
 
