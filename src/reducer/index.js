@@ -5,6 +5,7 @@ import {
 
 const DEFAULT_STATE = {
 	querying: false,
+	known: false,
 	charging: null,
 	level: null,
 };
@@ -19,6 +20,7 @@ export default (state = DEFAULT_STATE, action) => {
 		case SET_BATTERY:
 			return {
 				querying: false,
+				known: true,
 				charging: action.battery.charging,
 				level: action.battery.level,
 			};
@@ -28,5 +30,6 @@ export default (state = DEFAULT_STATE, action) => {
 };
 
 export const isBatteryStateQuerying = (state) => state.querying;
+export const isBatteryStateKnown = (state) => state.known;
 export const isBatteryCharging = (state) => state.charging;
 export const getBatteryLevel = (state) => state.level;

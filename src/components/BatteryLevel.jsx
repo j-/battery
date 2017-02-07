@@ -1,16 +1,11 @@
 import React, { PropTypes } from 'react';
-import BatteryLevelKnown from './BatteryLevelKnown';
-import BatteryLevelUnknown from './BatteryLevelUnknown';
 
 const BatteryLevel = ({
 	level,
-	...props,
+	...props
 }) => (
 	<div className="battery-level" { ...props }>
-		{ level !== null ?
-			<BatteryLevelKnown level={ level } /> :
-			<BatteryLevelUnknown />
-		}
+		{ `${level * 100}%` }
 	</div>
 );
 

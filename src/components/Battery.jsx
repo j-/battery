@@ -1,39 +1,33 @@
 import React, { PropTypes } from 'react';
+import BatteryUnknown from './BatteryUnknown';
 import BatteryCharging from './BatteryCharging';
 import BatteryDischarging from './BatteryDischarging';
 import BatteryLevel from './BatteryLevel';
 
 const Battery = ({
+	known,
 	charging,
 	level,
 	dispatch,
-	...props,
+	...props
 }) => {
-	const batteryLevel = <BatteryLevel level={ level } />;
-	let batteryElement;
-
-	if (charging) {
-		batteryElement = (
-			<BatteryCharging>
-				{ batteryLevel }
-			</BatteryCharging>
+	if (!known) {
+		return (
+			<BatteryUnknown { ...props } />
+		);
+	} else if (charging) {
+		return (
+			<BatteryCharging level={ level } { ...props } />
 		);
 	} else {
-		batteryElement = (
-			<BatteryDischarging>
-				{ batteryLevel }
-			</BatteryDischarging>
+		return (
+			<BatteryDischarging level={ level } { ...props } />
 		);
 	}
-
-	return (
-		<div className="battery" { ...props }>
-			{ batteryElement }
-		</div>
-	);
 };
 
 Battery.propTypes = {
+	known: PropTypes.bool,
 	charging: PropTypes.bool,
 	level: PropTypes.number,
 	dispatch: PropTypes.func,
