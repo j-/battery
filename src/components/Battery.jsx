@@ -3,10 +3,12 @@ import BatteryUnknown from './BatteryUnknown';
 import BatteryCharging from './BatteryCharging';
 import BatteryDischarging from './BatteryDischarging';
 import BatteryLevel from './BatteryLevel';
+import BatteryFull from './BatteryFull';
 
 const Battery = ({
 	known,
 	charging,
+	full,
 	level,
 	dispatch,
 	...props
@@ -14,6 +16,10 @@ const Battery = ({
 	if (!known) {
 		return (
 			<BatteryUnknown { ...props } />
+		);
+	} else if (full) {
+		return (
+			<BatteryFull level={ level } { ...props } />
 		);
 	} else if (charging) {
 		return (

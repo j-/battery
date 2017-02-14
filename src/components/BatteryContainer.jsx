@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import Battery from './Battery';
 
 import {
+	isBatteryFull,
 	isBatteryStateKnown,
 	isBatteryCharging,
 	getBatteryLevel,
@@ -10,6 +11,7 @@ import {
 const connectStateToProps = (state) => ({
 	known: isBatteryStateKnown(state),
 	charging: isBatteryCharging(state),
+	full: isBatteryFull(state),
 	level: getBatteryLevel(state),
 });
 

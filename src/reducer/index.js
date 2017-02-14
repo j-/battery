@@ -29,6 +29,9 @@ export default (state = DEFAULT_STATE, action) => {
 	}
 };
 
+export const isBatteryFull = (state) => (
+	getBatteryLevel(state) >= 1
+);
 export const isBatteryStateQuerying = (state) => state.querying;
 export const isBatteryStateKnown = (state) => state.known;
 export const isBatteryCharging = (state) => state.charging;
