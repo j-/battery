@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import reducer from './reducer';
@@ -8,7 +9,7 @@ import { getBattery, setBattery } from './reducer/actions';
 
 import './main';
 
-const store = createStore(reducer);
+const store = createStore(reducer, composeWithDevTools());
 const BATTERY_UPDATE_INTERVAL = 1000 * 10; // 10s
 
 ReactDOM.render(
