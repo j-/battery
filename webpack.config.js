@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const DefinePlugin = webpack.DefinePlugin;
 const HTMLPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 
 const resolve = (relative) => path.resolve(__dirname, relative);
 
@@ -60,6 +61,7 @@ module.exports = {
 				'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
 			},
 		}),
+		new OfflinePlugin(),
 	],
 	devtool: 'source-map',
 };

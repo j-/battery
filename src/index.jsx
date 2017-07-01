@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import App from './components/AppContainer';
 import reducer from './reducer';
 import { queryBattery, updateBattery } from './reducer/actions';
+import * as offlinePlugin from 'offline-plugin/runtime';
 
 import './main';
 
@@ -39,3 +40,5 @@ navigator.getBattery().then((battery) => {
 }).catch((err) => {
 	console.error('Error fetching battery stats: ' + err.message);
 });
+
+offlinePlugin.install();
