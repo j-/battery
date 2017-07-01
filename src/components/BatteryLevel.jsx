@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import BatteryText from './BatteryText';
 
 import {
 	batteryLevel,
@@ -8,9 +9,9 @@ const BatteryLevel = ({
 	level,
 	...props
 }) => (
-	<div className={ batteryLevel } { ...props }>
+	<BatteryText className={ batteryLevel } { ...props }>
 		{ `${level * 100}%` }
-	</div>
+	</BatteryText>
 );
 
 BatteryLevel.propTypes = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import BatteryText from './BatteryText';
 
 import {
 	batteryUnknown,
@@ -7,7 +8,11 @@ import {
 const BatteryUnknown = ({
 	...props
 }) => (
-	<div className={ batteryUnknown } { ...props } />
+	<div className={ batteryUnknown } { ...props }>
+		<BatteryText>
+			?
+		</BatteryText>
+	</div>
 );
 
 export default BatteryUnknown;
