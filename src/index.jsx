@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
-import App from './components/App';
+import App from './components/AppContainer';
 import reducer from './reducer';
 import { queryBattery, updateBattery } from './reducer/actions';
 

@@ -1,15 +1,13 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import BatteryText from './BatteryText';
 
 import {
 	batteryLevel,
 } from './styles';
 
-const BatteryLevel = ({
-	level,
-	...props
-}) => (
-	<BatteryText className={ batteryLevel } { ...props }>
+const BatteryLevel = ({ level }) => (
+	<BatteryText className={ batteryLevel }>
 		{ `${Math.round(level * 100)}%` }
 	</BatteryText>
 );

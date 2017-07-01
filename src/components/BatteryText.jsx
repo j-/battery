@@ -1,11 +1,13 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
 import {
 	batteryText,
 } from './styles';
 
-const BatteryText = ({ ...props }) => (
-	<div className={ batteryText } { ...props } />
+const BatteryText = ({ children }) => (
+	<div className={ batteryText }>
+		{ children }
+	</div>
 );
 
 export default BatteryText;

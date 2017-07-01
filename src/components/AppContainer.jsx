@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Battery from './Battery';
+import App from './App';
 
 import {
 	isBatteryFull,
@@ -20,4 +20,4 @@ const connectDispatchToProps = null;
 export default connect(
 	connectStateToProps,
 	connectDispatchToProps
-)(Battery);
+)(App);

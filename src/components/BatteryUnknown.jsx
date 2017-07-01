@@ -5,10 +5,8 @@ import {
 	batteryUnknown,
 } from './styles';
 
-const BatteryUnknown = ({
-	...props
-}) => (
-	<div className={ batteryUnknown } { ...props }>
+const BatteryUnknown = () => (
+	<div className={ batteryUnknown }>
 		<BatteryText>
 			?
 		</BatteryText>

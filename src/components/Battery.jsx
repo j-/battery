@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import BatteryUnknown from './BatteryUnknown';
 import BatteryCharging from './BatteryCharging';
 import BatteryDischarging from './BatteryDischarging';
@@ -10,13 +11,11 @@ const Battery = ({
 	charging,
 	full,
 	level,
-	dispatch,
-	...props
 }) => (
-	!known   ? <BatteryUnknown { ...props } /> :
-	full     ? <BatteryFull { ...props } /> :
-	charging ? <BatteryCharging level={ level } { ...props } /> :
-	<BatteryDischarging level={ level } { ...props } />
+	!known   ? <BatteryUnknown /> :
+	full     ? <BatteryFull /> :
+	charging ? <BatteryCharging level={ level } /> :
+	<BatteryDischarging level={ level } />
 );
 
 Battery.propTypes = {
