@@ -12,25 +12,12 @@ const Battery = ({
 	level,
 	dispatch,
 	...props
-}) => {
-	if (!known) {
-		return (
-			<BatteryUnknown { ...props } />
-		);
-	} else if (full) {
-		return (
-			<BatteryFull { ...props } />
-		);
-	} else if (charging) {
-		return (
-			<BatteryCharging level={ level } { ...props } />
-		);
-	} else {
-		return (
-			<BatteryDischarging level={ level } { ...props } />
-		);
-	}
-};
+}) => (
+	!known   ? <BatteryUnknown { ...props } /> :
+	full     ? <BatteryFull { ...props } /> :
+	charging ? <BatteryCharging level={ level } { ...props } /> :
+	<BatteryDischarging level={ level } { ...props } />
+);
 
 Battery.propTypes = {
 	known: PropTypes.bool,
