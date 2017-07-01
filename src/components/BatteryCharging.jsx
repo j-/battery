@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import GradientContainer from './GradientContainer';
 import BatteryLevel from './BatteryLevel';
 
 import {
@@ -9,9 +10,13 @@ const BatteryCharging = ({
 	level,
 	...props
 }) => (
-	<div className={ batteryCharging } { ...props }>
+	<GradientContainer
+		className={ batteryCharging }
+		level={ level }
+		{ ...props }
+	>
 		<BatteryLevel level={ level } />
-	</div>
+	</GradientContainer>
 );
 
 BatteryCharging.propTypes = {
