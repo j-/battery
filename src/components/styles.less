@@ -10,12 +10,12 @@
 
 .batteryCharging {
 	composes: battery;
-	background-color: hsl(150, 50%, 70%);
+	animation: charging 1s alternate infinite;
 }
 
 .batteryDischarging {
 	composes: battery;
-	background-color: hsl(0, 50%, 70%);
+	animation: discharging 1s alternate infinite;
 }
 
 .batteryUnknown {
@@ -24,7 +24,6 @@
 }
 
 .batteryText {
-	color: #222;
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -36,4 +35,13 @@
 
 .batteryLevel {
 	composes: batteryText;
+}
+
+@keyframes charging {
+	from { transform: scale(1); }
+	to { transform: scale(1.05); }
+}
+
+@keyframes discharging {
+	// No animation
 }
