@@ -50,8 +50,10 @@ export default class ColorComponent extends React.Component {
 		canvas.width = 16;
 		canvas.height = 16;
 		const ctx = canvas.getContext('2d');
-		ctx.fillStyle = color;
+		ctx.fillStyle = DEFAULT_COLOR;
 		ctx.fillRect(0, 0, 16, 16);
+		ctx.fillStyle = color;
+		ctx.fillRect(1, 1, 14, 14);
 		const icon = document.createElement('link');
 		icon.rel = 'shortcut icon';
 		icon.href = canvas.toDataURL();
