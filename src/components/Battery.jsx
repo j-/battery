@@ -19,7 +19,7 @@ const Battery = ({
 		);
 	} else if (full) {
 		return (
-			<BatteryFull level={ level } { ...props } />
+			<BatteryFull { ...props } />
 		);
 	} else if (charging) {
 		return (
