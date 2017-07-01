@@ -1,5 +1,5 @@
 import {
-	GET_BATTERY,
+	QUERY_BATTERY,
 	SET_BATTERY,
 } from './types';
 
@@ -12,7 +12,7 @@ const DEFAULT_STATE = {
 
 export default (state = DEFAULT_STATE, action) => {
 	switch (action.type) {
-		case GET_BATTERY:
+		case QUERY_BATTERY:
 			return {
 				...state,
 				querying: true,

@@ -5,7 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import reducer from './reducer';
-import { getBattery, setBattery } from './reducer/actions';
+import { queryBattery, setBattery } from './reducer/actions';
 
 import './main';
 
@@ -20,7 +20,7 @@ ReactDOM.render(
 );
 
 store.dispatch(
-	getBattery()
+	queryBattery()
 );
 
 navigator.getBattery().then((battery) => {

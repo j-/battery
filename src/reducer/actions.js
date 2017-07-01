@@ -1,10 +1,10 @@
 import {
-	GET_BATTERY,
+	QUERY_BATTERY,
 	SET_BATTERY,
 } from './types';
 
-export const getBattery = () => ({
-	type: GET_BATTERY,
+export const queryBattery = () => ({
+	type: QUERY_BATTERY,
 });
 
 export const setBattery = (battery) => ({
