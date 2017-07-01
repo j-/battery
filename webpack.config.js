@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const DefinePlugin = webpack.DefinePlugin;
 const HTMLPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const resolve = (relative) => path.resolve(__dirname, relative);
 
@@ -48,6 +49,9 @@ module.exports = {
 		],
 	},
 	plugins: [
+		new CopyPlugin([
+			{ from: './public' },
+		]),
 		new HTMLPlugin({
 			template: resolve('./src/index.html'),
 		}),
