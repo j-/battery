@@ -5,7 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import reducer from './reducer';
-import { queryBattery, setBattery } from './reducer/actions';
+import { queryBattery, updateBattery } from './reducer/actions';
 
 import './main';
 
@@ -24,18 +24,18 @@ store.dispatch(
 );
 
 navigator.getBattery().then((battery) => {
-	const updateBattery = () => {
+	const handler = () => {
 		store.dispatch(
-			setBattery(battery)
+			updateBattery(battery)
 		);
 	};
 	// Update whenever the browser notifies us of changes
-	battery.addEventListener('chargingchange', updateBattery);
-	battery.addEventListener('levelchange', updateBattery);
+	battery.addEventListener('chargingchange', handler);
+	battery.addEventListener('levelchange', handler);
 	// Update periodically
-	setInterval(updateBattery, BATTERY_UPDATE_INTERVAL);
+	setInterval(handler, BATTERY_UPDATE_INTERVAL);
 	// Update immediately
-	updateBattery();
+	handler();
 }).catch((err) => {
 	console.error('Error fetching battery stats: ' + err.message);
 });

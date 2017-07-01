@@ -1,6 +1,6 @@
 import {
 	QUERY_BATTERY,
-	SET_BATTERY,
+	UPDATE_BATTERY,
 } from './types';
 
 const DEFAULT_STATE = {
@@ -17,7 +17,7 @@ export default (state = DEFAULT_STATE, action) => {
 				...state,
 				querying: true,
 			};
-		case SET_BATTERY:
+		case UPDATE_BATTERY:
 			return {
 				querying: false,
 				known: true,
