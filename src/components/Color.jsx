@@ -57,7 +57,10 @@ export default class ColorComponent extends React.Component {
 		const icon = document.createElement('link');
 		icon.rel = 'shortcut icon';
 		icon.href = canvas.toDataURL();
-		document.querySelector('link[rel*=icon]').remove();
+		const previous = document.querySelector('link[rel*=icon]');
+		if (previous) {
+			previous.remove();
+		}
 		document.head.appendChild(icon);
 	}
 
@@ -65,7 +68,10 @@ export default class ColorComponent extends React.Component {
 		const meta = document.createElement('meta');
 		meta.name = 'theme-color';
 		meta.content = color;
-		document.querySelector('meta[name=theme-color]').remove();
+		const previous = document.querySelector('meta[name=theme-color]');
+		if (previous) {
+			previous.remove();
+		}
 		document.head.appendChild(meta);
 	}
 }
