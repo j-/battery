@@ -7,7 +7,7 @@ export const queryBattery = () => ({
 	type: QUERY_BATTERY,
 });
 
-export const updateBattery = (battery) => ({
+export const updateBattery = (battery: BatteryManager) => ({
 	type: UPDATE_BATTERY,
 	battery,
 });

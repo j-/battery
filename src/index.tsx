@@ -25,13 +25,7 @@ store.dispatch(
 	queryBattery()
 );
 
-interface Navigator {
-	getBattery(): any;
-}
-
-declare var navigator: Navigator;
-
-navigator.getBattery().then((battery: any) => {
+navigator.getBattery().then((battery) => {
 	const handler = () => {
 		store.dispatch(
 			updateBattery(battery)
@@ -44,6 +38,6 @@ navigator.getBattery().then((battery: any) => {
 	setInterval(handler, BATTERY_UPDATE_INTERVAL);
 	// Update immediately
 	handler();
-}).catch((err: Error) => {
+}).catch((err) => {
 	console.error('Error fetching battery stats: ' + err.message);
 });
