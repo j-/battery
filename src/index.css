@@ -38,8 +38,7 @@ body {
 	color: #ddd;
 }
 
-.BatteryText,
-.BatteryLevel {
+.BatteryText {
 	display: flex;
 	align-items: center;
 	justify-content: center;
