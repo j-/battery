@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const BatteryText: React.StatelessComponent = ({ children }) => (
+const BatteryText: React.FunctionComponent = ({ children }) => (
 	<div className="BatteryText">
 		{children}
 	</div>

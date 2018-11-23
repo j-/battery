@@ -5,7 +5,7 @@ export interface Props {
 	level: number;
 }
 
-const BatteryCharging: React.StatelessComponent<Props> = ({ level }) => (
+const BatteryCharging: React.FunctionComponent<Props> = ({ level }) => (
 	<div className="BatteryCharging">
 		<BatteryLevel level={level} />
 	</div>

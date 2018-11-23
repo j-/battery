@@ -3,7 +3,7 @@ import StatusTitle from '../containers/StatusTitle';
 import Battery from '../containers/Battery';
 import Color from '../containers/Color';
 
-const App: React.StatelessComponent = () => (
+const App: React.FunctionComponent = () => (
 	<div className="App">
 		<StatusTitle />
 		<Color>

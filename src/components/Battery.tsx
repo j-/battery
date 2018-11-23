@@ -11,7 +11,7 @@ export interface Props {
 	level: number | null;
 }
 
-const Battery: React.StatelessComponent<Props> = ({
+const Battery: React.FunctionComponent<Props> = ({
 	known,
 	charging,
 	full,
