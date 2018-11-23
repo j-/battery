@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import BatteryText from './BatteryText';
 
-const BatteryUnknown = () => (
+const BatteryUnknown: React.FunctionComponent = () => (
 	<div className="BatteryUnknown">
 		<BatteryText>
 			?
