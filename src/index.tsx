@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { Provider } from 'react-redux';
+import { Provider as StoreProvider } from 'react-redux';
 import App from './containers/App';
 import reducer from './reducer';
 import { queryBattery, updateBattery } from './reducer/actions';
@@ -13,9 +13,9 @@ const store = createStore(reducer, composeWithDevTools());
 const BATTERY_UPDATE_INTERVAL = 1000 * 10; // 10s
 
 ReactDOM.render(
-	<Provider store={ store }>
+	<StoreProvider store={ store }>
 		<App />
-	</Provider>,
+	</StoreProvider>,
 	document.getElementById('root')
 );
 
