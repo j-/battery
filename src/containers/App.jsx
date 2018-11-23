@@ -6,7 +6,7 @@ import {
 	isBatteryStateKnown,
 	isBatteryCharging,
 	getBatteryLevel,
-} from '../reducer';
+} from '../store';
 
 const connectStateToProps = (state) => ({
 	known: isBatteryStateKnown(state),
