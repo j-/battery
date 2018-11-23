@@ -25,19 +25,22 @@ store.dispatch(
 	queryBattery()
 );
 
-navigator.getBattery().then((battery) => {
-	const handler = () => {
-		store.dispatch(
-			updateBattery(battery)
-		);
-	};
-	// Update whenever the browser notifies us of changes
-	battery.addEventListener('chargingchange', handler);
-	battery.addEventListener('levelchange', handler);
-	// Update periodically
-	setInterval(handler, BATTERY_UPDATE_INTERVAL);
-	// Update immediately
-	handler();
-}).catch((err) => {
-	console.error('Error fetching battery stats: ' + err.message);
-});
+(async () => {
+	try {
+		const battery = await navigator.getBattery();
+		const handler = () => {
+			store.dispatch(
+				updateBattery(battery)
+			);
+		};
+		// Update whenever the browser notifies us of changes
+		battery.addEventListener('chargingchange', handler);
+		battery.addEventListener('levelchange', handler);
+		// Update periodically
+		setInterval(handler, BATTERY_UPDATE_INTERVAL);
+		// Update immediately
+		handler();
+	} catch (err) {
+		console.error('Error fetching battery stats: ' + err.message);
+	}
+})();
