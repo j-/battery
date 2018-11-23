@@ -1,6 +1,6 @@
 {
   "name": "battery",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "dependencies": {
     "react": "^16.6.3",
@@ -14,7 +14,9 @@
     "start": "react-scripts-j start",
     "build": "react-scripts-j build",
     "test": "react-scripts-j test --env=jsdom",
-    "eject": "react-scripts-j eject"
+    "eject": "react-scripts-j eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@types/jest": "^23.3.9",
@@ -22,6 +24,25 @@
     "@types/react": "^16.7.7",
     "@types/react-dom": "^16.0.10",
     "@types/react-redux": "^6.0.10",
+    "gh-pages": "^2.0.1",
     "typescript": "^3.1.6"
-  }
+  },
+  "description": "Battery status indicator",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-/battery.git"
+  },
+  "keywords": [
+    "status",
+    "indicator",
+    "remaining",
+    "charge"
+  ],
+  "author": "Jamie Hoeks <j@skeoh.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/j-/battery/issues"
+  },
+  "homepage": "https://skeoh.com/battery"
 }
