@@ -48,3 +48,17 @@ export const isBatteryStateQuerying = (state: RootReducerState) => state.queryin
 export const isBatteryStateKnown = (state: RootReducerState) => state.known;
 export const isBatteryCharging = (state: RootReducerState) => state.charging;
 export const getBatteryLevel = (state: RootReducerState) => state.level;
+
+export const getBatteryPercent = (state: RootReducerState) => (
+	state.level === null ? null : Math.round(state.level * 100) + '%'
+);
+
+export const getBatteryStatusSummary = (state: RootReducerState) => (
+	// Battery level is unknown
+	!isBatteryStateKnown(state) ? '(Unknown)' : (
+		// Get battery level
+		(isBatteryFull(state) ? 'Full' : getBatteryPercent(state) || '') +
+		// Get charging state
+		(isBatteryCharging(state) ? ' (Charging)' : '')
+	)
+);

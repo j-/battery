@@ -1,4 +1,5 @@
 import * as React from 'react';
+import StatusTitle from '../containers/StatusTitle';
 import Battery from './Battery';
 import Color from './Color';
 
@@ -16,6 +17,7 @@ const App: React.StatelessComponent<Props> = ({
 	level,
 }) => (
 	<div className="App">
+		<StatusTitle />
 		<Color charging={charging} level={level}>
 			<Battery
 				known={known}
