@@ -4,8 +4,8 @@ import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider as StoreProvider } from 'react-redux';
 import App from './containers/App';
-import reducer from './reducer';
-import { queryBattery, updateBattery } from './reducer/actions';
+import reducer from './store';
+import { queryBattery, updateBattery } from './store/actions';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
