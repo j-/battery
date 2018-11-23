@@ -1,7 +1,7 @@
 import * as React from 'react';
 import StatusTitle from '../containers/StatusTitle';
 import Battery from './Battery';
-import Color from './Color';
+import Color from '../containers/Color';
 
 export interface Props {
 	known: boolean;
@@ -18,7 +18,7 @@ const App: React.StatelessComponent<Props> = ({
 }) => (
 	<div className="App">
 		<StatusTitle />
-		<Color charging={charging} level={level}>
+		<Color>
 			<Battery
 				known={known}
 				charging={charging}
