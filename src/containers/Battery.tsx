@@ -1,14 +1,15 @@
-import { connect } from 'react-redux';
-import App from '../components/App';
+import { connect, MapStateToProps } from 'react-redux';
+import Battery, { Props } from '../components/Battery';
 
 import {
 	isBatteryFull,
 	isBatteryStateKnown,
 	isBatteryCharging,
 	getBatteryLevel,
+	RootReducerState,
 } from '../store';
 
-const connectStateToProps = (state) => ({
+const mapStateToProps: MapStateToProps<Props, {}, RootReducerState> = (state) => ({
 	known: isBatteryStateKnown(state),
 	charging: isBatteryCharging(state),
 	full: isBatteryFull(state),
@@ -16,5 +17,5 @@ const connectStateToProps = (state) => ({
 });
 
 export default connect(
-	connectStateToProps,
-)(App);
+	mapStateToProps,
+)(Battery);
