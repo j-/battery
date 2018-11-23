@@ -1,13 +1,9 @@
 import * as React from 'react';
-import BatteryLevel from './BatteryLevel';
+import BatteryLevel from '../containers/BatteryLevel';
 
-export interface Props {
-	level: number;
-}
-
-const BatteryDischarging: React.FunctionComponent<Props> = ({ level }) => (
+const BatteryDischarging: React.FunctionComponent = () => (
 	<div className="BatteryDischarging">
-		<BatteryLevel level={level} />
+		<BatteryLevel />
 	</div>
 );
 

@@ -8,23 +8,21 @@ export interface Props {
 	known: boolean;
 	charging: boolean | null;
 	full: boolean;
-	level: number | null;
 }
 
 const Battery: React.FunctionComponent<Props> = ({
 	known,
 	charging,
 	full,
-	level,
 }) => (
 	// Battery level is unknown
 	!known   ? <BatteryUnknown /> :
 	// Battery is full
 	full     ? <BatteryFull /> :
 	// Battery is charging
-	charging ? <BatteryCharging level={level!} /> :
+	charging ? <BatteryCharging /> :
 	// Battery is discharging
-	<BatteryDischarging level={level!} />
+	<BatteryDischarging />
 );
 
 export default Battery;
