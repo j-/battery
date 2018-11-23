@@ -7,7 +7,7 @@ export interface Props {
 
 const BatteryLevel: React.StatelessComponent<Props> = ({ level }) => (
 	<BatteryText>
-		{ `${Math.round(level * 100)}%` }
+		{`${Math.round(level * 100)}%`}
 	</BatteryText>
 );
 
