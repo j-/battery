@@ -2,6 +2,7 @@ import * as React from 'react';
 
 export interface Props {
 	level: number | null;
+	charging: boolean | null;
 }
 
 const DEFAULT_COLOR = '#222';
@@ -34,12 +35,20 @@ const getColorForLevel = (level: number) => {
 
 export default class ColorComponent extends React.Component<Props> {
 	render () {
-		const { level } = this.props;
+		const { level, charging, children } = this.props;
 		const color = level !== null ? getColorForLevel(level) : DEFAULT_COLOR;
+		const style = {
+			backgroundColor: charging ? color : DEFAULT_COLOR,
+			color: charging ? DEFAULT_COLOR : color,
+		};
 		this.renderBackground(color);
 		this.renderFavicon(color);
 		this.renderThemeColor(color);
-		return null;
+		return (
+			<div className="Color" style={style}>
+				{children}
+			</div>
+		);
 	}
 
 	private renderBackground (color: string) {

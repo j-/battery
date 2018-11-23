@@ -16,15 +16,14 @@ const App: React.StatelessComponent<Props> = ({
 	level,
 }) => (
 	<div className="App">
-		<Battery
-			known={known}
-			charging={charging}
-			full={full}
-			level={level}
-		/>
-		<Color
-			level={level}
-		/>
+		<Color charging={charging} level={level}>
+			<Battery
+				known={known}
+				charging={charging}
+				full={full}
+				level={level}
+			/>
+		</Color>
 	</div>
 );
 
