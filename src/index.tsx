@@ -13,7 +13,7 @@ const store = createStore(reducer, composeWithDevTools());
 const BATTERY_UPDATE_INTERVAL = 1000 * 10; // 10s
 
 ReactDOM.render(
-	<StoreProvider store={ store }>
+	<StoreProvider store={store}>
 		<App />
 	</StoreProvider>,
 	document.getElementById('root')
