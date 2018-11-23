@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import BatteryText from './BatteryText';
 
-const BatteryFull = () => (
+const BatteryFull: React.StatelessComponent = () => (
 	<div className="BatteryFull">
 		<BatteryText>
 			Full
