@@ -1,37 +1,10 @@
 import * as React from 'react';
+import { getColorForLevel, DEFAULT_COLOR } from '../color';
 
 export interface Props {
 	level: number | null;
 	charging: boolean | null;
 }
-
-const DEFAULT_COLOR = '#222';
-
-const saturation = 60;
-const lightness = 80;
-
-/**
- * Converts a battery level value to a hue value
- * @param level Battery level value from 0-1
- * @returns Hue value between 0-360
- */
-const getHueForLevel = (level: number) => {
-	if (level < 0.25) {
-		return (level / 0.25) * 50;
-	} else {
-		return 50 + ((level - 0.25) / 0.75) * 60;
-	}
-};
-
-/**
- * Converts a battery level value to a hex color
- * @param level Battery level value from 0-1
- * @returns HSL color in the format hsl(hue, saturation%, lightness%)
- */
-const getColorForLevel = (level: number) => {
-	const hue = getHueForLevel(level);
-	return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-};
 
 export default class Color extends React.PureComponent<Props> {
 	render () {
