@@ -22,6 +22,9 @@ body {
 .Color {
 	width: 100%;
 	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .BatteryCharging {
@@ -37,9 +40,6 @@ body {
 }
 
 .BatteryText {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	font-size: 40vmin;
 	font-family: Arial, sans-serif;
 }
