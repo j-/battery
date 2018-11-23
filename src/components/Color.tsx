@@ -1,5 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+
+export interface Props {
+	level: number | null;
+}
 
 const DEFAULT_COLOR = '#222';
 
@@ -8,10 +11,10 @@ const lightness = 80;
 
 /**
  * Converts a battery level value to a hue value
- * @param {number} level Battery level value from 0-1
- * @returns {number} Hue value between 0-360
+ * @param level Battery level value from 0-1
+ * @returns Hue value between 0-360
  */
-const getHueForLevel = (level) => {
+const getHueForLevel = (level: number) => {
 	if (level < 0.25) {
 		return (level / 0.25) * 50;
 	} else {
@@ -21,15 +24,15 @@ const getHueForLevel = (level) => {
 
 /**
  * Converts a battery level value to a hex color
- * @param {number} level Battery level value from 0-1
- * @returns {string} Hex color in the format #RRGGBB
+ * @param level Battery level value from 0-1
+ * @returns HSL color in the format hsl(hue, saturation%, lightness%)
  */
-const getColorForLevel = (level) => {
+const getColorForLevel = (level: number) => {
 	const hue = getHueForLevel(level);
 	return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 };
 
-export default class ColorComponent extends React.Component {
+export default class ColorComponent extends React.Component<Props> {
 	render () {
 		const { level } = this.props;
 		const color = level !== null ? getColorForLevel(level) : DEFAULT_COLOR;
@@ -39,15 +42,15 @@ export default class ColorComponent extends React.Component {
 		return null;
 	}
 
-	renderBackground (color) {
+	private renderBackground (color: string) {
 		document.body.style.backgroundColor = color;
 	}
 
-	renderFavicon (color) {
+	private renderFavicon (color: string) {
 		const canvas = document.createElement('canvas');
 		canvas.width = 16;
 		canvas.height = 16;
-		const ctx = canvas.getContext('2d');
+		const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 		ctx.fillStyle = DEFAULT_COLOR;
 		ctx.fillRect(0, 0, 16, 16);
 		ctx.fillStyle = color;
@@ -59,10 +62,10 @@ export default class ColorComponent extends React.Component {
 		if (previous) {
 			previous.remove();
 		}
-		document.head.appendChild(icon);
+		(document.head as HTMLHeadElement).appendChild(icon);
 	}
 
-	renderThemeColor (color) {
+	private renderThemeColor (color: string) {
 		const meta = document.createElement('meta');
 		meta.name = 'theme-color';
 		meta.content = color;
@@ -70,10 +73,6 @@ export default class ColorComponent extends React.Component {
 		if (previous) {
 			previous.remove();
 		}
-		document.head.appendChild(meta);
+		(document.head as HTMLHeadElement).appendChild(meta);
 	}
 }
-
-ColorComponent.propTypes = {
-	level: PropTypes.number,
-};
