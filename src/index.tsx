@@ -1,14 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import App from './components/AppContainer';
 import reducer from './reducer';
 import { queryBattery, updateBattery } from './reducer/actions';
-import * as offlinePlugin from 'offline-plugin/runtime';
-
-import './main';
+import registerServiceWorker from './registerServiceWorker';
+import './index.css';
 
 const store = createStore(reducer, composeWithDevTools());
 const BATTERY_UPDATE_INTERVAL = 1000 * 10; // 10s
@@ -20,11 +19,19 @@ ReactDOM.render(
 	document.getElementById('root')
 );
 
+registerServiceWorker();
+
 store.dispatch(
 	queryBattery()
 );
 
-navigator.getBattery().then((battery) => {
+interface Navigator {
+	getBattery(): any;
+}
+
+declare var navigator: Navigator;
+
+navigator.getBattery().then((battery: any) => {
 	const handler = () => {
 		store.dispatch(
 			updateBattery(battery)
@@ -37,8 +44,6 @@ navigator.getBattery().then((battery) => {
 	setInterval(handler, BATTERY_UPDATE_INTERVAL);
 	// Update immediately
 	handler();
-}).catch((err) => {
+}).catch((err: Error) => {
 	console.error('Error fetching battery stats: ' + err.message);
 });
-
-offlinePlugin.install();

@@ -1,12 +1,8 @@
 import React from 'react';
 import BatteryText from './BatteryText';
 
-import {
-	batteryFull,
-} from './styles';
-
 const BatteryFull = () => (
-	<div className={ batteryFull }>
+	<div className="BatteryFull">
 		<BatteryText>
 			Full
 		</BatteryText>

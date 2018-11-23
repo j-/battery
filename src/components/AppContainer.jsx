@@ -15,9 +15,6 @@ const connectStateToProps = (state) => ({
 	level: getBatteryLevel(state),
 });
 
-const connectDispatchToProps = null;
-
 export default connect(
 	connectStateToProps,
-	connectDispatchToProps
 )(App);

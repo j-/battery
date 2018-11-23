@@ -1,4 +1,17 @@
-.app {
+html,
+body,
+#root {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-color: #222;
+}
+
+.App {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -6,39 +19,32 @@
 	height: 100%;
 }
 
-.battery {
+.Battery,
+.BatteryFull,
+.BatteryCharging,
+.BatteryDischarging {
 	color: #222;
 }
 
-.batteryFull {
-	composes: battery;
-}
-
-.batteryCharging {
-	composes: battery;
+.BatteryCharging {
 	animation: charging 1s alternate infinite;
 }
 
-.batteryDischarging {
-	composes: battery;
+.BatteryDischarging {
 	animation: discharging 1s alternate infinite;
 }
 
-.batteryUnknown {
-	composes: battery;
+.BatteryUnknown {
 	color: #ddd;
 }
 
-.batteryText {
+.BatteryText,
+.BatteryLevel {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-size: 40vmin;
 	font-family: Arial, sans-serif;
-}
-
-.batteryLevel {
-	composes: batteryText;
 }
 
 @keyframes charging {
@@ -47,5 +53,5 @@
 }
 
 @keyframes discharging {
-	// No animation
+	/* No animation */
 }

@@ -2,12 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BatteryText from './BatteryText';
 
-import {
-	batteryLevel,
-} from './styles';
-
 const BatteryLevel = ({ level }) => (
-	<BatteryText className={ batteryLevel }>
+	<BatteryText className="BatteryLevel">
 		{ `${Math.round(level * 100)}%` }
 	</BatteryText>
 );

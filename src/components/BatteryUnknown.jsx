@@ -1,12 +1,8 @@
 import React from 'react';
 import BatteryText from './BatteryText';
 
-import {
-	batteryUnknown,
-} from './styles';
-
 const BatteryUnknown = () => (
-	<div className={ batteryUnknown }>
+	<div className="BatteryUnknown">
 		<BatteryText>
 			?
 		</BatteryText>

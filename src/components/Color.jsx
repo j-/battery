@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Color from 'color';
 
 const DEFAULT_COLOR = '#222';
 
@@ -27,8 +26,7 @@ const getHueForLevel = (level) => {
  */
 const getColorForLevel = (level) => {
 	const hue = getHueForLevel(level);
-	const color = new Color([hue, saturation, lightness], 'hsl');
-	return color.hex();
+	return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 };
 
 export default class ColorComponent extends React.Component {

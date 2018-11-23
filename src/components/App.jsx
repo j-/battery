@@ -1,7 +1,6 @@
 import React from 'react';
 import Battery from './Battery';
 import Color from './Color';
-import { app } from './styles';
 
 const App = ({
 	known,
@@ -9,7 +8,7 @@ const App = ({
 	full,
 	level,
 }) => (
-	<div className={ app }>
+	<div className="App">
 		<Battery
 			known={ known }
 			charging={ charging }
