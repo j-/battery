@@ -33,7 +33,7 @@ const getColorForLevel = (level: number) => {
 	return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 };
 
-export default class ColorComponent extends React.Component<Props> {
+export default class Color extends React.PureComponent<Props> {
 	render () {
 		const { level, charging, children } = this.props;
 		const color = level !== null ? getColorForLevel(level) : DEFAULT_COLOR;
